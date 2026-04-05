@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="planner" aria-labelledby="planner-title">
+      <div class="planner__header">
+        <div class="planner__topbar">
+          <div>
+            <p class="planner__eyebrow">Daily Focus</p>
+            <h1 id="planner-title">My Tasks</h1>
+            <p class="planner__subtitle">Keep things clear, tidy and under control.</p>
+          </div>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
+            <span class="theme-toggle__icon" aria-hidden="true">&#9728;</span>
+            <span class="theme-toggle__text">Light</span>
+          </button>
+        </div>
+      </div>
+
+      <form class="task-form" id="task-form">
+        <label class="task-form__field" for="task-input">
+          <span class="sr-only">Enter a new task</span>
+          <input
+            id="task-input"
+            name="task"
+            type="text"
+            placeholder="Add a new task..."
+            autocomplete="off"
+            maxlength="120"
+            required
+          >
+        </label>
+        <button class="task-form__button" type="submit">Add Task</button>
+      </form>
+
+      <div class="toolbar" aria-label="Task filters and actions">
+        <div class="filters" role="tablist" aria-label="Task filters">
+          <button class="filter-button is-active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-button" type="button" data-filter="active" role="tab" aria-selected="false">Active</button>
+          <button class="filter-button" type="button" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+        </div>
+        <button class="clear-button" id="clear-completed" type="button">Clear Completed</button>
+      </div>
+
+      <section class="task-panel" aria-live="polite">
+        <ul class="task-list" id="task-list"></ul>
+        <p class="empty-state" id="empty-state">No tasks yet. Add the first one to get started.</p>
+      </section>
+
+      <footer class="planner__footer">
+        <p class="task-counter" id="task-counter">0 tasks left</p>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
